@@ -73,19 +73,8 @@ public class SiegeWarSelfListener implements Listener {
 	@EventHandler
 	public void onSiegeEnd(SiegeEndEvent event) {
 		Siege siege = event.getSiege();
-		System.out.print("SiegeEndEvent fired!");
-		//experimental
-		/*
-		Block flagBlock = siege.getFlagBlock();
-		ItemStack fancyFlag = new ItemStack(Material.WHITE_BANNER, 1);
-		ItemMeta fancyFlagMeta = fancyFlag.getItemMeta();
-		List<String> lore = new ArrayList<String>();
-		lore.add("Attacker: " + siege.getAttackerName() + " Defender: " + siege.getDefenderName());
+		System.out.println("SiegeEndEvent fired!");
 
-        fancyFlagMeta.setLore(lore);
-		fancyFlagMeta.setDisplayName("test trophy banner");
-		flagBlock.getDrops().add(new ItemStack(Material.STONE));
-		*/
 		if (!SiegeWarSettings.isDiscordWebhookEnabled() || !SiegeWarSettings.isSiegeEndNotificationEnabled())
 			return;
 
