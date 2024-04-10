@@ -9,14 +9,21 @@ import com.gmail.goosius.siegewar.events.SiegeEndEvent;
 import com.gmail.goosius.siegewar.events.SiegeRemoveEvent;
 import com.gmail.goosius.siegewar.objects.Siege;
 import com.gmail.goosius.siegewar.utils.DiscordWebhook;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
 import com.gmail.goosius.siegewar.SiegeController;
 import com.gmail.goosius.siegewar.settings.SiegeWarSettings;
 import com.palmergames.bukkit.towny.object.Translatable;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class SiegeWarSelfListener implements Listener {
 	
@@ -64,6 +71,19 @@ public class SiegeWarSelfListener implements Listener {
 	@EventHandler
 	public void onSiegeEnd(SiegeEndEvent event) {
 		Siege siege = event.getSiege();
+
+		//experimental
+		Block flagBlock = siege.getFlagBlock();
+		ItemStack fancyFlag = new ItemStack(Material.WHITE_BANNER, 1);
+		ItemMeta fancyFlagMeta = fancyFlag.getItemMeta();
+		List<String> lore = new ArrayList<String>();
+		lore.add("Attacker: " + siege.getAttackerName() + " Defender: " + siege.getDefenderName())
+
+        fancyFlagMeta.setLore(lore);
+		fancyFlagMeta.setDisplayName("test trophy banner");
+		flagBlock.getDrops().clear(); //clear vanilla banner drops
+		flagBlock.getDrops().add(fancyFlag);
+
 		if (!SiegeWarSettings.isDiscordWebhookEnabled() || !SiegeWarSettings.isSiegeEndNotificationEnabled())
 			return;
 
