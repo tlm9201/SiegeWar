@@ -1,5 +1,6 @@
 package com.gmail.goosius.siegewar.listeners;
 
+import com.gmail.goosius.siegewar.SiegeWar;
 import com.gmail.goosius.siegewar.events.BattleSessionEndedEvent;
 import com.gmail.goosius.siegewar.events.BattleSessionPreStartEvent;
 import com.gmail.goosius.siegewar.events.BattleSessionStartedEvent;
@@ -11,6 +12,7 @@ import com.gmail.goosius.siegewar.objects.Siege;
 import com.gmail.goosius.siegewar.utils.DiscordWebhook;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Item;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -26,7 +28,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class SiegeWarSelfListener implements Listener {
-	
+
 	@EventHandler(ignoreCancelled = true)
 	public void onBattleSessionPreStart(BattleSessionPreStartEvent event) {
 		if (SiegeWarSettings.cancelBattleSessionWhenNoActiveSieges()
@@ -71,8 +73,9 @@ public class SiegeWarSelfListener implements Listener {
 	@EventHandler
 	public void onSiegeEnd(SiegeEndEvent event) {
 		Siege siege = event.getSiege();
-
+		System.out.print("SiegeEndEvent fired!");
 		//experimental
+		/*
 		Block flagBlock = siege.getFlagBlock();
 		ItemStack fancyFlag = new ItemStack(Material.WHITE_BANNER, 1);
 		ItemMeta fancyFlagMeta = fancyFlag.getItemMeta();
@@ -81,9 +84,8 @@ public class SiegeWarSelfListener implements Listener {
 
         fancyFlagMeta.setLore(lore);
 		fancyFlagMeta.setDisplayName("test trophy banner");
-		flagBlock.getDrops().clear(); //clear vanilla banner drops
-		flagBlock.getDrops().add(fancyFlag);
-
+		flagBlock.getDrops().add(new ItemStack(Material.STONE));
+		*/
 		if (!SiegeWarSettings.isDiscordWebhookEnabled() || !SiegeWarSettings.isSiegeEndNotificationEnabled())
 			return;
 
