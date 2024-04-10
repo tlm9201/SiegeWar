@@ -77,7 +77,7 @@ public class SiegeWarSelfListener implements Listener {
 		ItemStack fancyFlag = new ItemStack(Material.WHITE_BANNER, 1);
 		ItemMeta fancyFlagMeta = fancyFlag.getItemMeta();
 		List<String> lore = new ArrayList<String>();
-		lore.add("Attacker: " + siege.getAttackerName() + " Defender: " + siege.getDefenderName())
+		lore.add("Attacker: " + siege.getAttackerName() + " Defender: " + siege.getDefenderName());
 
         fancyFlagMeta.setLore(lore);
 		fancyFlagMeta.setDisplayName("test trophy banner");
