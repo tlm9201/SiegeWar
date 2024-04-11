@@ -64,7 +64,6 @@ public class SiegeWarSelfListener implements Listener {
 	@EventHandler
 	public void onSiegeEnd(SiegeEndEvent event) {
 		Siege siege = event.getSiege();
-
 		if (!SiegeWarSettings.isDiscordWebhookEnabled() || !SiegeWarSettings.isSiegeEndNotificationEnabled())
 			return;
 
