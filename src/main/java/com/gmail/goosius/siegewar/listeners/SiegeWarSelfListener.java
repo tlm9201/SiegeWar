@@ -1,6 +1,5 @@
 package com.gmail.goosius.siegewar.listeners;
 
-import com.gmail.goosius.siegewar.SiegeWar;
 import com.gmail.goosius.siegewar.events.BattleSessionEndedEvent;
 import com.gmail.goosius.siegewar.events.BattleSessionPreStartEvent;
 import com.gmail.goosius.siegewar.events.BattleSessionStartedEvent;
@@ -10,22 +9,14 @@ import com.gmail.goosius.siegewar.events.SiegeEndEvent;
 import com.gmail.goosius.siegewar.events.SiegeRemoveEvent;
 import com.gmail.goosius.siegewar.objects.Siege;
 import com.gmail.goosius.siegewar.utils.DiscordWebhook;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Item;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
 import com.gmail.goosius.siegewar.SiegeController;
 import com.gmail.goosius.siegewar.settings.SiegeWarSettings;
 import com.palmergames.bukkit.towny.object.Translatable;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 import java.awt.Color;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 public class SiegeWarSelfListener implements Listener {
 
@@ -73,7 +64,6 @@ public class SiegeWarSelfListener implements Listener {
 	@EventHandler
 	public void onSiegeEnd(SiegeEndEvent event) {
 		Siege siege = event.getSiege();
-		System.out.println("SiegeEndEvent fired!");
 
 		if (!SiegeWarSettings.isDiscordWebhookEnabled() || !SiegeWarSettings.isSiegeEndNotificationEnabled())
 			return;
