@@ -137,6 +137,14 @@ public enum ConfigNodes {
 			"",
 			"# When true, players will have a glowing effect."),
 
+	WAR_SIEGE_ONLY_ONE_ACTION_ENABLED(
+			"war.siege.switches.only_one_action_enabled",
+			"false",
+			"",
+			"# If true, players can only either invade or plunder a town, not both.",
+			"# If false, players can perform both actions."
+	),
+
 	WAR_SIEGE_MONEY(
 			"war.siege.money",
 			"",
@@ -228,6 +236,14 @@ public enum ConfigNodes {
 			"# The value specifies what proportion of the initial nation cost is refunded, when the nation is deleted or defeated.",
 			"# This feature supports nations which actively participate in geopolitics but are ultimately defeated by stronger opponents.",
 			"# Set to 0.0 to disable"),
+	WAR_SIEGE_TOWN_PEACEFULNESS_COST(
+			"war.siege.money.town_peacefulness_daily_cost",
+			"0.0",
+			"",
+			"# The cost that a town must pay to remain peaceful. Disabled when set to 0.0.",
+			"# This cost is paid after a town pays their upkeep and has their days-to-peaceful-change counted.",
+			"# If a town cannot pay the peaceful cost after they have their peaceful setting changed back to false."),
+	
 	WAR_SIEGE_QUANTITIES(
 			"war.siege.quantities",
 			"",
@@ -627,6 +643,13 @@ public enum ConfigNodes {
 			"",
 			"# Given any peaceful town, the largest-by-townblock, non-peaceful, non-sieged town, in this radius around the homeblock, is considered to be the guardian town.",
 			"# If a nation owns the guardian town, that nation can instantly subvert & occupy the peaceful town"),
+	PEACEFUL_TOWNS_CANNOT_ASSIGN_MILITARY_RANKS(
+			"peaceful_towns.cannot_assign_military_ranks",
+			"true",
+			"",
+			"# Prevents players in peaceful towns from being given ranks with military-rank-permission nodes.",
+			"# It is not recommended to set this to false."),
+
 	OCCUPIED_TOWNS(
 			"occupied_towns",
 			"",
